@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
-	
+
       - name: Authenticate to AWS
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -33,4 +33,4 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG	 
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
